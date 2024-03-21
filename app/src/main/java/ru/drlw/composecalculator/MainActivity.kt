@@ -3,6 +3,7 @@ package ru.drlw.composecalculator
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -112,124 +113,200 @@ fun Greeting(text: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun ACButton() {
-    Button(
-        onClick = { /*TODO*/ },
+    Card(
         Modifier
             .height(67.dp)
-            .width(67.dp)
+            .width(67.dp),
+        shape = RoundedCornerShape(32.dp)
     ) {
-        Text("AC")
+        Column(
+            Modifier
+                .fillMaxSize()
+                .clickable { },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "AC", fontSize = 32.sp)
+        }
     }
 }
 
 @Composable
 fun PercentButton() {
-    Button(
-        onClick = { /*TODO*/ },
+    Card(
         Modifier
             .height(67.dp)
-            .width(67.dp)
+            .width(67.dp),
+        shape = RoundedCornerShape(32.dp)
     ) {
-        Text("%")
+        Column(
+            Modifier
+                .fillMaxSize()
+                .clickable { },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "%", fontSize = 32.sp)
+        }
     }
 }
 
 @Composable
 fun DeleteLastButton() {
-    Button(
-        onClick = { /*TODO*/ },
+    Card(
         Modifier
             .height(67.dp)
-            .width(67.dp)
+            .width(67.dp),
+        shape = RoundedCornerShape(32.dp)
     ) {
-        Icon(
-            imageVector = ImageVector.vectorResource(R.drawable.baseline_close_24),
-            contentDescription = null,
-            Modifier.fillMaxSize()
-        )
+        Column(
+            Modifier
+                .fillMaxSize()
+                .clickable { },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "X", fontSize = 32.sp)
+        }
     }
 }
 
 @Composable
 fun DivButton() {
-    Button(
-        onClick = { /*TODO*/ },
+    Card(
         Modifier
             .height(67.dp)
-            .width(67.dp)
+            .width(67.dp),
+        shape = RoundedCornerShape(32.dp)
     ) {
-        Text("/")
+        Column(
+            Modifier
+                .fillMaxSize()
+                .clickable { },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "/", fontSize = 32.sp)
+        }
     }
 }
 
 @Composable
 fun MulButton() {
-    Button(
-        onClick = { /*TODO*/ },
+    Card(
         Modifier
             .height(67.dp)
-            .width(67.dp)
+            .width(67.dp),
+        shape = RoundedCornerShape(32.dp)
     ) {
-        Text("*")
+        Column(
+            Modifier
+                .fillMaxSize()
+                .clickable { },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "*", fontSize = 32.sp)
+        }
     }
 }
 
 @Composable
 fun MinusButton() {
-    Button(
-        onClick = { /*TODO*/ },
+    Card(
         Modifier
             .height(67.dp)
-            .width(67.dp)
+            .width(67.dp),
+        shape = RoundedCornerShape(32.dp)
     ) {
-        Text("-")
+        Column(
+            Modifier
+                .fillMaxSize()
+                .clickable { },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "-", fontSize = 32.sp)
+        }
     }
 }
 
 @Composable
 fun PlusButton() {
-    Button(
-        onClick = { /*TODO*/ },
+    Card(
         Modifier
             .height(67.dp)
-            .width(67.dp)
+            .width(67.dp),
+        shape = RoundedCornerShape(32.dp)
     ) {
-        Text("+")
+        Column(
+            Modifier
+                .fillMaxSize()
+                .clickable { },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "+", fontSize = 32.sp)
+        }
     }
 }
 
 @Composable
 fun EqualButton() {
-    Button(
-        onClick = { /*TODO*/ },
+    Card(
         Modifier
             .height(67.dp)
-            .width(67.dp)
+            .width(67.dp),
+        shape = RoundedCornerShape(32.dp)
     ) {
-        Text("=")
+        Column(
+            Modifier
+                .fillMaxSize()
+                .clickable { },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "=", fontSize = 32.sp)
+        }
     }
 }
 
 @Composable
 fun DotButton() {
-    Button(
-        onClick = { /*TODO*/ },
+    Card(
         Modifier
             .height(67.dp)
-            .width(67.dp)
+            .width(67.dp),
+        shape = RoundedCornerShape(32.dp)
     ) {
-        Text(".")
+        Column(
+            Modifier
+                .fillMaxSize()
+                .clickable { },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = ".", fontSize = 32.sp)
+        }
     }
 }
 
 @Composable
 fun NumButton(num: String) {
-    Button(
-        onClick = { /*TODO*/ },
+    Card(
         Modifier
             .height(67.dp)
-            .width(67.dp)
+            .width(67.dp),
+        shape = RoundedCornerShape(32.dp)
     ) {
-        Text(num)
+        Column(
+            Modifier
+                .fillMaxSize()
+                .clickable { },
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = num, fontSize = 32.sp)
+        }
     }
 }
