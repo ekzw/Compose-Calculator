@@ -38,10 +38,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import net.objecthunter.exp4j.ExpressionBuilder
 import ru.drlw.composecalculator.ui.theme.ComposeCalculatorTheme
 
 class MainActivity : ComponentActivity() {
@@ -77,34 +79,34 @@ class MainActivity : ComponentActivity() {
 fun ButtonsField(modifier: Modifier = Modifier, message: MutableState<String>) {
     Column(verticalArrangement = Arrangement.SpaceEvenly, modifier = modifier) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-            ACButton()
-            PercentButton()
+            ACButton(message)
+            PercentButton(message)
             DeleteLastButton(message)
-            DivButton()
+            DivButton(message)
         }
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
             NumButton("7", message)
             NumButton("8", message)
             NumButton("9", message)
-            MulButton()
+            MulButton(message)
         }
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
             NumButton("4", message)
             NumButton("5", message)
             NumButton("6", message)
-            MinusButton()
+            MinusButton(message)
         }
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
             NumButton("1", message)
             NumButton("2", message)
             NumButton("3", message)
-            PlusButton()
+            PlusButton(message)
         }
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
             NumButton("00", message)
             NumButton("0", message)
-            DotButton()
-            EqualButton()
+            DotButton(message)
+            EqualButton(message)
         }
     }
 }
@@ -120,14 +122,14 @@ fun Greeting(text: String, modifier: Modifier = Modifier) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = text, fontSize = 40.sp
+            text = text, fontSize = 40.sp, lineHeight = 32.sp
         )
     }
 }
 
 
 @Composable
-fun ACButton() {
+fun ACButton(message: MutableState<String>) {
     Card(
         Modifier
             .height(67.dp)
@@ -137,7 +139,7 @@ fun ACButton() {
         Column(
             Modifier
                 .fillMaxSize()
-                .clickable { },
+                .clickable { message.value = "0" },
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -147,7 +149,7 @@ fun ACButton() {
 }
 
 @Composable
-fun PercentButton() {
+fun PercentButton(message: MutableState<String>) {
     Card(
         Modifier
             .height(67.dp)
@@ -157,7 +159,18 @@ fun PercentButton() {
         Column(
             Modifier
                 .fillMaxSize()
-                .clickable { },
+                .clickable {
+                    if (message.value
+                            .last()
+                            .toString() !in listOf(
+                            "-",
+                            "+",
+                            "/",
+                            "%",
+                            "*", "."
+                        )
+                    ) message.value += "%"
+                },
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -190,7 +203,7 @@ fun DeleteLastButton(message: MutableState<String>) {
 }
 
 @Composable
-fun DivButton() {
+fun DivButton(message: MutableState<String>) {
     Card(
         Modifier
             .height(67.dp)
@@ -200,7 +213,18 @@ fun DivButton() {
         Column(
             Modifier
                 .fillMaxSize()
-                .clickable { },
+                .clickable {
+                    if (message.value
+                            .last()
+                            .toString() !in listOf(
+                            "-",
+                            "+",
+                            "/",
+                            "%",
+                            "*", "."
+                        )
+                    ) message.value += "/"
+                },
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -210,7 +234,7 @@ fun DivButton() {
 }
 
 @Composable
-fun MulButton() {
+fun MulButton(message: MutableState<String>) {
     Card(
         Modifier
             .height(67.dp)
@@ -220,7 +244,18 @@ fun MulButton() {
         Column(
             Modifier
                 .fillMaxSize()
-                .clickable { },
+                .clickable {
+                    if (message.value
+                            .last()
+                            .toString() !in listOf(
+                            "-",
+                            "+",
+                            "/",
+                            "%",
+                            "*", "."
+                        )
+                    ) message.value += "*"
+                },
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -230,7 +265,7 @@ fun MulButton() {
 }
 
 @Composable
-fun MinusButton() {
+fun MinusButton(message: MutableState<String>) {
     Card(
         Modifier
             .height(67.dp)
@@ -240,7 +275,18 @@ fun MinusButton() {
         Column(
             Modifier
                 .fillMaxSize()
-                .clickable { },
+                .clickable {
+                    if (message.value
+                            .last()
+                            .toString() !in listOf(
+                            "-",
+                            "+",
+                            "/",
+                            "%",
+                            "*", "."
+                        )
+                    ) message.value += "-"
+                },
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -250,7 +296,7 @@ fun MinusButton() {
 }
 
 @Composable
-fun PlusButton() {
+fun PlusButton(message: MutableState<String>) {
     Card(
         Modifier
             .height(67.dp)
@@ -260,7 +306,18 @@ fun PlusButton() {
         Column(
             Modifier
                 .fillMaxSize()
-                .clickable { },
+                .clickable {
+                    if (message.value
+                            .last()
+                            .toString() !in listOf(
+                            "-",
+                            "+",
+                            "/",
+                            "%",
+                            "*", "."
+                        )
+                    ) message.value += "+"
+                },
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -270,7 +327,7 @@ fun PlusButton() {
 }
 
 @Composable
-fun EqualButton() {
+fun EqualButton(message: MutableState<String>) {
     val context = LocalContext.current
     val backgroundColor: Color = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
         if (isSystemInDarkTheme()) {
@@ -293,7 +350,16 @@ fun EqualButton() {
         Column(
             Modifier
                 .fillMaxSize()
-                .clickable { },
+                .clickable {
+                    val result = ExpressionBuilder(message.value)
+                        .build()
+                        .evaluate()
+                    message.value = if (result % 1 == 0.0) {
+                        result.toInt().toString() // Преобразовываем в целое число, если результат целый
+                    } else {
+                        result.toString() // Преобразовываем в число с плавающей точкой, если результат не целый
+                    }
+                },
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -303,7 +369,7 @@ fun EqualButton() {
 }
 
 @Composable
-fun DotButton() {
+fun DotButton(message: MutableState<String>) {
     Card(
         Modifier
             .height(67.dp)
@@ -313,7 +379,18 @@ fun DotButton() {
         Column(
             Modifier
                 .fillMaxSize()
-                .clickable { },
+                .clickable {
+                    if (message.value
+                            .last()
+                            .toString() !in listOf(
+                            "-",
+                            "+",
+                            "/",
+                            "%",
+                            "*", "."
+                        )
+                    ) message.value += "."
+                },
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
