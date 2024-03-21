@@ -16,12 +16,15 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -95,7 +98,9 @@ fun ButtonsField(modifier: Modifier = Modifier) {
 @Composable
 fun Greeting(text: String, modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier.fillMaxSize().padding(top = 32.dp, bottom = 32.dp, start = 32.dp, end = 32.dp),
+        modifier = modifier
+            .fillMaxSize()
+            .padding(top = 32.dp, bottom = 32.dp, start = 32.dp, end = 32.dp),
         horizontalArrangement = Arrangement.End,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -137,7 +142,11 @@ fun DeleteLastButton() {
             .height(67.dp)
             .width(67.dp)
     ) {
-        Text("-(")
+        Icon(
+            imageVector = ImageVector.vectorResource(R.drawable.baseline_close_24),
+            contentDescription = null,
+            Modifier.fillMaxSize()
+        )
     }
 }
 
